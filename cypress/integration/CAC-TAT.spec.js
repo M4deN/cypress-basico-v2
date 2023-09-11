@@ -85,7 +85,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             cy.wrap($radio).should('be.checked')
         })       
     })
-    //Lessons 05 npm run cy:open
+    //Lessons 05
     it('marca ambos checkboxes, depois desmarca o último (versão que pede o exercicio)', function() {  
         cy.get('#email-checkbox').should('have.value','email').check().should('be.checked')
         cy.get('#phone-checkbox').should('have.value','phone').check()
@@ -94,6 +94,26 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('marca ambos checkboxes, depois desmarca o último (versão otimizada, desmarcando o primeiro)', function() {  
         cy.get('input[type="checkbox"]').should('have.length',2).check()
         cy.get('input[type="checkbox"]').should('have.length',2).first().uncheck().should('not.be.checked')
+    })
+    //Lessons 06 npm run cy:open
+    it('seleciona um arquivo da pasta fixtures', function() {  
+        cy.get('input[type="file"]').should('not.have.value').selectFile('cypress/fixtures/example.json').should(function($input){
+           console.log($input)//pegar a assertiva do files
+           expect($input[0].files[0].name).to.equal('example.json')
+        })
+    })
+    it('seleciona um arquivo simulando um drag-and-drop', function() {  
+        cy.get('input[type="file"]').should('not.have.value').selectFile('cypress/fixtures/example.json', { action: 'drag-drop' }).should(function($input){
+           console.log($input)//pegar a assertiva do files
+           expect($input[0].files[0].name).to.equal('example.json')
+        })
+    })
+    it(' seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function() {  
+        cy.fixture('example.json').as('fixture1')//nome do arquivo pasta fixture arquivo example.json
+        cy.get('input[type="file"]').selectFile('@fixture1').should(function($input){
+            console.log($input)//pegar a assertiva do files
+            expect($input[0].files[0].name).to.equal('example.json')
+         })
     })
   })
   

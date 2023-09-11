@@ -95,7 +95,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('input[type="checkbox"]').should('have.length',2).check()
         cy.get('input[type="checkbox"]').should('have.length',2).first().uncheck().should('not.be.checked')
     })
-    //Lessons 06 npm run cy:open
+    //Lessons 06
     it('seleciona um arquivo da pasta fixtures', function() {  
         cy.get('input[type="file"]').should('not.have.value').selectFile('cypress/fixtures/example.json').should(function($input){
            console.log($input)//pegar a assertiva do files
@@ -114,6 +114,14 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             console.log($input)//pegar a assertiva do files
             expect($input[0].files[0].name).to.equal('example.json')
          })
+    })
+    //Lessons 07 npm run cy:open
+    it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function() {  
+        cy.get('a[href="privacy.html"]').should('have.attr', 'target', '_blank')//alternativa elemento pai #privacy elemento filho a
+    })
+    it('acessa a página da política de privacidade removendo o target e então clicando no link', function() {  
+        cy.get('a[href="privacy.html"]').invoke('removeAttr', 'target').click()
+        cy.get('#title').should('have.text','CAC TAT - Política de privacidade')
     })
   })
   

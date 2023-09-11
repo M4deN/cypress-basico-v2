@@ -60,6 +60,14 @@ Atualmente, o projeto conta com os seguintes arquivos de teste:
 1. `CAC-TAT.spec.js`
 2. `privacy.spec.js`
 
+# Documentação do Projeto Cypress Básico v2
+
+...
+
+# Documentação do Projeto Cypress Básico v2
+
+...
+
 ## Contato
 
 Para mais informações ou suporte, entre em contato com o autor do projeto:
@@ -67,7 +75,17 @@ Para mais informações ou suporte, entre em contato com o autor do projeto:
 - Nome: Alecio L. Medeiros
 - Email: alexdesaran@gmail.com
 
+## CI (Integração Contínua)
+
+O projeto utiliza GitHub Actions para execução de testes automatizados em ambientes de integração contínua. A configuração do fluxo de trabalho pode ser encontrada no arquivo `.github/workflows`:
+
+### Arquivo: .github/workflows/main.yml
+
+```yaml
+name: End-to-end tests 🧪
+...
+
 ## Licença
 
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter mais detalhes.
 
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter mais detalhes.

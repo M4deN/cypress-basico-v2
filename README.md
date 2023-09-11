@@ -60,13 +60,6 @@ Atualmente, o projeto conta com os seguintes arquivos de teste:
 1. `CAC-TAT.spec.js`
 2. `privacy.spec.js`
 
-# Documentação do Projeto Cypress Básico v2
-
-...
-
-# Documentação do Projeto Cypress Básico v2
-
-...
 
 ## Contato
 

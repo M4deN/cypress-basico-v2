@@ -112,7 +112,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.fixture('example.json').as('fixture1')//nome do arquivo pasta fixture arquivo example.json
         cy.get('input[type="file"]').selectFile('@fixture1').should(function($input){
             console.log($input)//pegar a assertiva do files
-            expect($input[0].files[0].name).to.equal('example.jon')
+            expect($input[0].files[0].name).to.equal('example.json')
          })
     })
     //Lessons 07 npm run cy:open
@@ -121,7 +121,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
     it('acessa a página da política de privacidade removendo o target e então clicando no link', function() {  
         cy.get('a[href="privacy.html"]').invoke('removeAttr', 'target').click()
-        cy.get('#title').should('have.text','CAC TAT - Política de rivacidade')
+        cy.get('#title').should('have.text','CAC TAT - Política de privacidade')
     })
   })
   

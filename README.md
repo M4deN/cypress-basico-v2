@@ -71,6 +71,3 @@ Para mais informações ou suporte, entre em contato com o autor do projeto:
 
 Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter mais detalhes.
 
-## Saiba Mais
-
-Para obter mais informações sobre o curso, visite a página oficial no GitHub: [https://github.com/wlsf82/cypress-basico-v2#readme](wlsf82)

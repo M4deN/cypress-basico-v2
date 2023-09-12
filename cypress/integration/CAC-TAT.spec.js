@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 
 describe('Central de Atendimento ao Cliente TAT', function() {
+    const SECONDS = 3000
     beforeEach(function(){
         cy.visit('/src/index.html')
     })
@@ -10,6 +11,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
 
     it('preenche os campos obrigatórios e envia o formulário', function(){
+        cy.clock()
         const longText = 'otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!! otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!  otimo curso!!!'
         cy.get('#firstName').type('Alecio')
         cy.get('#lastName').type('Medeiros')
@@ -18,8 +20,11 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#open-text-area').type(longText,{delay:0})
         cy.contains('button', 'Enviar').click()
         cy.get('.success').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', function() {  
+        cy.clock()
         cy.get('#firstName').type('Alecio')
         cy.get('#lastName').type('Medeiros')
         cy.get('#email').type('Alecio@email,com')
@@ -27,8 +32,11 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#open-text-area').type('otimo curso!!!')
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('campo telefone vazio, quando preenchido com valor errado', function() {  
+        cy.clock()
         cy.get('#firstName').type('Alecio')
         cy.get('#lastName').type('Medeiros')
         cy.get('#email').type('Alecio@email.com')
@@ -37,8 +45,11 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#open-text-area').type('otimo curso!!!')
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {  
+        cy.clock()
         cy.get('#firstName').type('Alecio')
         cy.get('#lastName').type('Medeiros')
         cy.get('#email').type('Alecio@email.com')
@@ -46,8 +57,11 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#open-text-area').type('otimo curso!!!')
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('preenche e limpa os campos nome, sobrenome, email e telefone', function() {  
+        cy.clock()
         cy.get('#firstName').type('Alecio').should('have.value', 'Alecio').clear().should('have.value', '')
         cy.get('#lastName').type('Medeiros').should('have.value', 'Medeiros').clear().should('have.value', '')
         cy.get('#email').type('Alecio@email.com').should('have.value', 'Alecio@email.com').clear().should('have.value', '')
@@ -56,10 +70,15 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#open-text-area').type('otimo curso!!!').should('have.value', 'otimo curso!!!').clear().should('have.value', '')
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', function() {  
+        cy.clock()
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
+        cy.tick(SECONDS)
+        cy.get('.success').should('not.be.visible')
     })
     it('envia o formuário com sucesso usando um comando customizado', function() {  
         cy.fillMandatoryFieldsAndSubmit()
@@ -115,7 +134,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             expect($input[0].files[0].name).to.equal('example.json')
          })
     })
-    //Lessons 07 npm run cy:open
+    //Lessons 07 
     it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function() {  
         cy.get('a[href="privacy.html"]').should('have.attr', 'target', '_blank')//alternativa elemento pai #privacy elemento filho a
     })
@@ -123,5 +142,4 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('a[href="privacy.html"]').invoke('removeAttr', 'target').click()
         cy.get('#title').should('have.text','CAC TAT - Política de privacidade')
     })
-  })
-  
+  }) 

@@ -35,6 +35,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.tick(SECONDS)
         cy.get('.success').should('not.be.visible')
     })
+    Cypress._.times(3, function(){//function Loadash repetição de testes executados
     it('campo telefone vazio, quando preenchido com valor errado', function() {  
         cy.clock()
         cy.get('#firstName').type('Alecio')
@@ -48,6 +49,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.tick(SECONDS)
         cy.get('.success').should('not.be.visible')
     })
+})
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {  
         cy.clock()
         cy.get('#firstName').type('Alecio')
@@ -142,4 +144,13 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('a[href="privacy.html"]').invoke('removeAttr', 'target').click()
         cy.get('#title').should('have.text','CAC TAT - Política de privacidade')
     })
+    //Lessons 11
+    it('exibe e esconde as mensagens de sucesso e erro usando o .invoke', function()  {
+        cy.get('.success').should('not.be.visible').invoke('show').should('be.visible').and('contain', 'Mensagem enviada com sucesso.').invoke('hide').should('not.be.visible')
+        cy.get('.error').should('not.be.visible').invoke('show').should('be.visible').and('contain', 'Valide os campos obrigatórios!').invoke('hide').should('not.be.visible')
+      })
+      it('preenche a area de texto usando o comando invoke', function() {
+        const longText = Cypress._.repeat('test.. test....', 200)
+        cy.get('#open-text-area').invoke('val', longText).should('have.value', longText)
+      })
   }) 

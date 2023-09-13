@@ -162,7 +162,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         })
       })   
        //Lessons 12
-      it.only('Desafio (encontre o gato) 🐈', function() {
+      it('Desafio (encontre o gato) 🐈', function() {
         cy.get('#cat').invoke('show').should('be.visible')
         cy.get('#title').invoke('text','CAT TAT')
         cy.get('#subtitle').invoke('text','EU ILOVE 🐈')

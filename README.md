@@ -1,5 +1,7 @@
 # Documentação do Projeto Cypress Básico v2
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/M4deN/cypress-basico-v2/ci.yml?label=Test%20Workflows&logo=GitHub&style=for-the-badge)
+
 ## Descrição do Projeto
 
 O repositório "cypress-basico-v2" contém a versão 2 do curso básico de Cypress da Escola Talking About Testing. O objetivo deste projeto é fornecer um ambiente de aprendizado para automação de testes utilizando a ferramenta Cypress.io.

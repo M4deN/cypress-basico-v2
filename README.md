@@ -1,6 +1,6 @@
 # Documentação do Projeto Cypress Básico v2
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/M4deN/cypress-basico-v2/ci.yml?label=Test%20Workflows&logo=GitHub&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/M4deN/cypress-basico-v2/ci.yml?label=Test%20Workflows&logo=Cypress&style=for-the-badge)
 
 ## Descrição do Projeto
 

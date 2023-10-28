@@ -79,8 +79,12 @@ Este comando irá abrir o Cypress em uma configuração específica para disposi
 Atualmente, o projeto conta com os seguintes arquivos de teste:
 
 1. `CAC-TAT.spec.js`
-2. `privacy.spec.js`
 
+https://github.com/M4deN/cypress-basico-v2/assets/43422425/8ccf16af-0edc-4186-8156-f0f22c43c254
+
+2. `Privacy.spec.js`
+
+https://github.com/M4deN/cypress-basico-v2/assets/43422425/7d55531d-8f66-49c1-9315-ec1c096f2bb7
 
 ## CI (Integração Contínua)
 
